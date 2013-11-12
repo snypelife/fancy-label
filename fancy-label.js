@@ -23,6 +23,7 @@
             label.setAttribute('for', input.id)
             label.innerHTML = input.getAttribute('placeholder')
             label.style.top = input.offsetTop - 20 + 'px'
+            label.style.left = input.offsetLeft + 'px'
 
             input.parentNode.insertBefore(label, input)  
           }
@@ -32,6 +33,6 @@
         }
       }
 
-  doc.addEventListener('keydown', placeholderToLabel, true)
-  doc.addEventListener('change', placeholderToLabel, true)
+  doc.addEventListener('keydown', placeholderToLabel, false)
+  doc.addEventListener('change', placeholderToLabel, false)
 }(document)

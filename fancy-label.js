@@ -28,7 +28,7 @@
             input.parentNode.insertBefore(label, input)  
           }
           setTimeout(function () {
-            input.previousSibling.classList[input.value !== '' ? 'add' : 'remove']('visible')
+            input.previousSibling.classList[!!input.value ? 'add' : 'remove']('visible')
           }, 10)
         }
       }

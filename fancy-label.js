@@ -14,6 +14,12 @@
   var placeholderToLabel = function (evt) {
         if (matches.call(evt.target, 'input, select')) {
           var input = evt.target
+            , text = input.getAttribute('placeholder')
+          
+          if (!text) {
+            return
+          }
+
           if (!doc.querySelector('[for="' + input.id + '"]')) {
             var label = doc.createElement('label')
 
@@ -25,10 +31,10 @@
             label.style.top = input.offsetTop - input.height - 3 + 'px'
             label.style.left = input.offsetLeft + 'px'
 
-            input.parentNode.insertBefore(label, input)  
+            input.parentNode.insertBefore(label, input)
           }
           setTimeout(function () {
-            input.previousSibling.classList[!!input.value ? 'add' : 'remove']('visible')
+            input.previousSibling.classList[input.value !== '' ? 'add' : 'remove']('visible')
           }, 10)
         }
       }

@@ -28,7 +28,7 @@
             label.classList.add('fancy-label')
             label.setAttribute('for', input.id)
             label.innerHTML = input.getAttribute('placeholder')
-            label.style.top = input.offsetTop - input.height - 3 + 'px'
+            label.style.top = (input.offsetTop - input.offsetHeight) / 2 - 3 + 'px'
             label.style.left = input.offsetLeft + 'px'
 
             input.parentNode.insertBefore(label, input)
